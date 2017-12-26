@@ -1,4 +1,4 @@
-name := "agileeng"
+name := "transactionsapp"
  
 version := "1.0" 
       
