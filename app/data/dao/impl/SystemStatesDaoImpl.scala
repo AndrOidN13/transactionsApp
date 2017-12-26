@@ -1,6 +1,6 @@
 package data.dao.impl
 
-import javax.inject.Inject
+import javax.inject.{Inject, Singleton}
 
 import data.dao.SystemStatesDao
 import data.database.slick.h2.DbSchemaDefinition
@@ -12,6 +12,7 @@ import slick.jdbc.JdbcProfile
 
 import scala.concurrent.{ExecutionContext, Future}
 
+@Singleton
 class SystemStatesDaoImpl @Inject()(dbSchemaDefinition: DbSchemaDefinition,
                                     @NamedDatabase("slick") dbConfigProvider: DatabaseConfigProvider)
                                    (implicit ec: ExecutionContext) extends SystemStatesDao {

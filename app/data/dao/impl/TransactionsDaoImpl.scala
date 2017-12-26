@@ -1,7 +1,7 @@
 package data.dao.impl
 
 
-import javax.inject.Inject
+import javax.inject.{Inject, Singleton}
 
 import data.dao.TransactionsDao
 import data.database.slick.h2.DbSchemaDefinition
@@ -13,6 +13,7 @@ import slick.jdbc.H2Profile.api._
 
 import scala.concurrent.{ExecutionContext, Future}
 
+@Singleton
 class TransactionsDaoImpl @Inject()(dbSchemaDefinition: DbSchemaDefinition,
                                     @NamedDatabase("slick") dbConfigProvider: DatabaseConfigProvider)
                                    (implicit ec: ExecutionContext) extends TransactionsDao {
