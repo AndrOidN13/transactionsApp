@@ -4,16 +4,16 @@ import javax.inject._
 
 import data.dao.TransactionsDao
 import play.api.mvc._
-import scala.concurrent.duration._
 
-import scala.concurrent.{Await, ExecutionContext}
+import scala.concurrent.ExecutionContext
 
 @Singleton
 class HomeController @Inject()(cc: ControllerComponents, transactionsDao: TransactionsDao)(implicit ec: ExecutionContext) extends AbstractController(cc) {
 
-  def index = Action {
-    val transactions = Await.result(transactionsDao.getAllTransactions, 5 seconds)
-    Ok(views.html.index("", transactions))
+  def index = Action.async {
+    transactionsDao.getAllTransactions map {
+      transactions => Ok(views.html.index("", transactions))
+    }
   }
 
 }
