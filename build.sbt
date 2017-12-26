@@ -20,6 +20,8 @@ libraryDependencies ++= Seq(
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
 
+TwirlKeys.templateImports += "data.model._"
+
 
 
       

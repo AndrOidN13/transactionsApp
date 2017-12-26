@@ -8,7 +8,7 @@ import play.db.NamedDatabase
 import slick.jdbc.H2Profile.api._
 import slick.jdbc.JdbcProfile
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.ExecutionContext
 
 @Singleton
 class DbSetup @Inject()(dbSchemaDefinition: DbSchemaDefinition,
